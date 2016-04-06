@@ -5,6 +5,7 @@
 var questionOne = "Write a currying (partial application) function that will generate the following output when invoked: console.log(currying(“curry!”)); curry!curry!curry!"
 var currying = function(text, n) {
   console.log("1: ")
+  console.log(questionOne)
   console.log("input: ", text)
   var string = ""
   for (var i = 0; i < n; i++) {
@@ -17,9 +18,10 @@ console.log("output: ", currying("curry!", 3))
 
 
 //two
-var questionTwo = "What are the differences between undefined, null, and NaN? How about apply(), bind(), and call()?"
-var definitionsFunction = function() {
+var questionTwo = "What are the differences between undefined, null, and NaN? How about apply(), bind(), and call()?";
+(function() {
   console.log("2: ")
+  console.log(questionTwo)
   var testThis = function(num, num2, num3) {
     return this.number + num + num2 + num3
   }
@@ -57,7 +59,7 @@ var definitionsFunction = function() {
       __: ""
     },
     apply: {
-      definition: "apply() is almost identical with the exeption that you can now pass in an array as the second argument. ",
+      definition: "apply() is almost identical with the exception that you can now pass in an array as the second argument. ",
       function: "testThis.apply(obj, arr) ",
       returned: testThis.apply(obj, arr),
       __: ""
@@ -71,41 +73,36 @@ var definitionsFunction = function() {
   }
 
   for (keys in definitions) {
-    if (typeof(definitions[keys]) === "object") {
-      var object = definitions[keys]
-      console.log(keys)
-      for (key in object) {
-        console.log(key, ": ", object[key])
-      }
-    } else {
-      console.log(keys, ": ", definitions[keys])
-      console.log("...")
+    var object = definitions[keys]
+    console.log("-",keys)
+    for (key in object) {
+      console.log(key, ": ", object[key])
     }
   }
-}
-definitionsFunction()
+})();
+
 
 
 //three
 var questionThree = "Describe what the following function does:";
 var describeTheFunction = function() {
-  console.log("3: ")
-  // (function() {
-  //     for (var i = 0; i < 10; i++) {
-  //         setTimeout(function () {
-  //             console.log(i);
-  //         }, 1000)
-  //     }
-  // })();
+  console.log("3: ");
+    (function() {
+        for (var i = 0; i < 10; i++) {
+            setTimeout(function () {
+                console.log(i);
+            }, 1000)
+        }
+    })();
   var threeObj = {
-    threeA: "An immediately-invoked function expression. ",
-    threeB: "The 'for' expression will loop through a given range, in this case 0 through 9, it will stop when i is no longer less that 10. ",
-    threeC: "On each loop it will call the setTimeout function to console.log the value of 'i' after the given time has passed. ",
-    threeD: "This results in all of the setTimeout functions being called rapidly one after the other, ",
-    threeE: "The value of 'i' that is logged will be i's value at the time it is logged. in this case it will be ten"
+    threeA: "- It is an immediately-invoked function expression. (iife) ",
+    threeB: "- The 'for' expression will loop through a given range, in this case 0 through 9, it will stop when i is no longer less that 10. ",
+    threeC: "- On each loop it will call the setTimeout function to console.log the value of 'i' after the given time has passed. ",
+    threeD: "- This results in all of the setTimeout functions being called rapidly one after the other, as well as having async issues",
+    threeE: "- The value of 'i' that is logged will be i's value at the time it is logged. in this case it will be ten"
   }
 
-console.log(questionThree)
+  console.log(questionThree)
   for (key in threeObj) {
     console.log(threeObj[key])
   }
@@ -114,11 +111,12 @@ console.log(questionThree)
 describeTheFunction()
 
 
-var questionFour =  "Correct question 3 so that when it invokes, it generates the expected output.";
+var questionFour = "Correct question 3 so that when it invokes, it generates the expected output.";
 
 (function() {
   console.log("4: ")
   console.log(questionFour)
+  console.log("-This is best achieved with a recursive function")
   var i = 0
   var setTheTimeout = (n) => {
     setTimeout(function() {
