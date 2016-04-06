@@ -87,13 +87,13 @@ var questionTwo = "What are the differences between undefined, null, and NaN? Ho
 var questionThree = "Describe what the following function does:";
 var describeTheFunction = function() {
   console.log("3: ");
-    (function() {
-        for (var i = 0; i < 10; i++) {
-            setTimeout(function () {
-                console.log(i);
-            }, 1000)
-        }
-    })();
+    // (function() {
+    //     for (var i = 0; i < 10; i++) {
+    //         setTimeout(function () {
+    //             console.log(i);
+    //         }, 1000)
+    //     }
+    // })();
   var threeObj = {
     threeA: "- It is an immediately-invoked function expression. (iife) ",
     threeB: "- The 'for' expression will loop through a given range, in this case 0 through 9, it will stop when i is no longer less that 10. ",
